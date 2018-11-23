@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> wifidog—Java服务器-padavan固件适配</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper wrapper-content project-manager">
+      
+        <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="m-b-md">
+                                    
+                                    <h2>项目详情：</h2>
+                                    <p><dt>说明:</dt>&nbsp;&nbsp;本项目主要基于 wifidog网路认证业务实现（只对http有效），同时兼容原版wifidog(推荐使用padavan固件来搭配使用本项目,实现了最简单的流程）。</p>
+                                	<p>项目用到的路由器为斐讯k2，刷入了padavan固件，功能强大，带wifidog客户端<br/>
+                                		<dt>开发项目环境：</dt>  JDK7  Tomcat8  eclipse  MySQL5+
+                                	</p>
+                                	<p><dt>wifidog的认证流程是：</dt>
+
+1.用户连上wifi，发起一个访问网站的请求，如：segmentfault.com<br/>
+
+2.网关根据防火墙规则，将请求重定向本地（路由器的ip）的wifidog端口<br/>
+
+3.wifidog重定向到认证服务器的认证页面<br/>
+
+4.认证服务器返回登录页面让用户填写<br/>
+
+5.用户填写后请求认证<br/>
+
+6.认证服务器根据用户提供数据确定是否符合要求(用学校宽带账号可直接登录)<br/>
+
+7.如果符合要求，认证服务器将用户重定向路由器网关并携带token<br/>
+
+8.网关向认证服务器确定用户信息<br/>
+
+9.如果符合要求，服务器返回用户登录成功的页面<br/>
+
+9.用户正常上网</p>
+                                </div>
+                                <dl class="dl-horizontal">
+                                    
+                                    
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <dl class="dl-horizontal">
+
+                                    <dt><a href="http://www.cnblogs.com/TonyChan7/p/3847433.html">我看到的原文地址</a><br>
+</dt>                                  
+                                           
+                                    <dd class="project-people">
+                                       
+                                            <img alt="image" class="img-circle" src="images/a1.jpg">
+                                        
+                                        
+                                        
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-sm-7" id="cluster_info">
+                                <dl class="dl-horizontal">
+
+                                    <dt>最后更新：</dt>
+                                    <dd>2017年 5月13日 22:03</dd>
+                                    <dt>创建于：</dt>
+                                    <dd>2017年 5月8日 03:01</dd>
+                                    <dt>版本：</dt>
+                                    <dd>v1.0</dd>
+                                    <dt>基于Github的一个开源项目</dt>
+                                    	 <dd><a href="https://github.com/C-hill/java4wifidog_server">click here</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <dl class="dl-horizontal">
+                                    <dt>当前进度</dt>
+                                    <dd>
+                                        <div class="progress progress-striped active m-b-sm">
+                                            <div style="width: 70%;" class="progress-bar"></div>
+                                        </div>
+                                        <small>当前已完成项目总进度的 <strong>70%</strong></small>
+                                        
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                            
+                        
+                    </div>        
+                
+                
+</div>
+			
+		 <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+    <!-- 自定义js -->
+    
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('#loading-example-btn').click(function () {
+                btn = $(this);
+                simpleLoad(btn, true)
+
+                // Ajax example
+                //                $.ajax().always(function () {
+                //                    simpleLoad($(this), false)
+                //                });
+
+                simpleLoad(btn, false)
+            });
+        });
+
+        function simpleLoad(btn, state) {
+            if (state) {
+                btn.children().addClass('fa-spin');
+                btn.contents().last().replaceWith(" Loading");
+            } else {
+                setTimeout(function () {
+                    btn.children().removeClass('fa-spin');
+                    btn.contents().last().replaceWith(" Refresh");
+                }, 2000);
+            }
+        }
+    </script>	
+			
+</body>
+
+</html>

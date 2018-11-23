@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<!--*******************************filter*******************************-->
+<!--过滤器-->
+	<filter>
+		<filter-name>url</filter-name>
+		<filter-class>com.k2.wifidog.filter.URLFilter</filter-class>
+	</filter>
+<!--*******************************servlet*******************************-->
+<!--  初始化-->
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.InitServlet</servlet-class>
+    <init-param>
+    	<param-name>log4j</param-name>
+    	<param-value>E:\java\javaweb\java_wifidog_server\WebRoot\WEB-INF\classes\log4j.properties</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+	
+<!--     wifidog接口                   -->
+  <!--                    auth                   -->
+  <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.AuthServlet</servlet-class>
+  </servlet>
+<!--                     ping                      -->
+  <servlet>
+    <servlet-name>PingServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.PingServlet</servlet-class>
+  </servlet>
+<!--                       portal                   -->
+  <servlet>
+    <servlet-name>PortalServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.PortalServlet</servlet-class>
+  </servlet>
+<!--                       login                  -->
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.LoginServlet</servlet-class>
+  </servlet>
+  <!--                      register                 -->
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.RegisterServlet</servlet-class>
+  </servlet>
+<!--                       gw_message                  -->
+  <servlet>
+    <servlet-name>GwMessageServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.GwMessageServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>LoginValidateServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.wifidog.LoginValidateServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.UserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RouterServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.RouterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeviceServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.DeviceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HostServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.HostServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IpWhiteServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.IpWhiteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MacBlackServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.MacBlackServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MacWhiteServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.MacWhiteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OpServlet</servlet-name>
+    <servlet-class>com.k2.wifidog.controller.client.OpServlet</servlet-class>
+  </servlet>
+
+  
+  
+<!--*****************************mapping*******************************-->  
+	<filter-mapping>
+		<filter-name>url</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+  <servlet-mapping>
+    <servlet-name>PingServlet</servlet-name>
+    <url-pattern>/wifidog/ping/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InitServlet</servlet-name>
+    <url-pattern>/init</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/wifidog/auth/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PortalServlet</servlet-name>
+    <url-pattern>/wifidog/portal/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/wifidog/login/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginValidateServlet</servlet-name>
+    <url-pattern>/loginValidate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/wifidog/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GwMessageServlet</servlet-name>
+    <url-pattern>/wifidog/gw_message/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/api/wifidog_user/get_all</url-pattern>
+    <url-pattern>/api/wifidog_user/add</url-pattern>
+    <url-pattern>/api/wifidog_user/delete</url-pattern>
+    <url-pattern>/api/wifidog_user/modify</url-pattern>
+    <url-pattern>/api/wifidog_user/active</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RouterServlet</servlet-name>
+    <url-pattern>/api/get_status</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeviceServlet</servlet-name>
+    <url-pattern>/api/client_list</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HostServlet</servlet-name>
+    <url-pattern>/api/client_op/host/get</url-pattern>
+    <url-pattern>/api/client_op/host/add</url-pattern>
+    <url-pattern>/api/client_op/host/delete</url-pattern>
+    <url-pattern>/api/client_op/host/modify</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IpWhiteServlet</servlet-name>
+    <url-pattern>/api/client_op/ipwhite/get</url-pattern>
+    <url-pattern>/api/client_op/ipwhite/add</url-pattern>
+    <url-pattern>/api/client_op/ipwhite/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MacBlackServlet</servlet-name>
+    <url-pattern>/api/client_op/macblack/get</url-pattern>
+    <url-pattern>/api/client_op/macblack/add</url-pattern>
+    <url-pattern>/api/client_op/macblack/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MacWhiteServlet</servlet-name>
+    <url-pattern>/api/client_op/macwhite/get</url-pattern>
+    <url-pattern>/api/client_op/macwhite/add</url-pattern>
+    <url-pattern>/api/client_op/macwhite/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OpServlet</servlet-name>
+    <url-pattern>/api/client_op/get_all</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
